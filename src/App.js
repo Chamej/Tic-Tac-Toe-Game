@@ -37,12 +37,14 @@ const App = () => {
       const [a,b,c] = winningPositions[i];
       if(newSquares[a] && newSquares[a] === newSquares[b] && newSquares[a] === newSquares[c]) {
         endGame(newSquares[a], winningPositions[i]);
+        // there is a winner
         return
       }
     }
 
     if(!newSquares.includes(null)) {
       endGame(null, Array.from(Array(10).keys()));
+      //there is no winner
       return
     }
     setTurn(turn === 'X' ? 'O' : 'X');
